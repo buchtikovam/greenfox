@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Better Reddit</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h1 id="new-header">Sumbit a new post</h1>
+
+<nav>
+	<a th:href="@{/}">Main page</a>
+</nav>
+
+
+
+<div>
+	<form id="add-post-form" action="/add-new" method="post">
+		<label for="title">Title:</label>
+		<input type="text" id="title" name="title">
+
+		<label for="url">Url:</label>
+		<input type="text" id="url" name="url">
+
+		<button type="submit">Add</button>
+		<p th:text="${error}" style="color: red"></p>
+	</form>
+</div>
+
+</body>
+</html>

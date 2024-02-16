@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Workshop: innerHTML, textContent</title>
+	<style>
+		.background-color-green {
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li>placeholder</li>
+		<li>placeholder</li>
+		<li>placeholder</li>
+		<li>placeholder</li>
+	</ul>
+
+	<script>
+		// 1) replace the list items ' content with items from this list: ['apple', 'banana', 'cat', 'dog']
+		const items = document.getElementsByTagName("li");
+		const values = ['apple', 'banana', 'cat', 'dog'];
+		const itemArray = Array.from(items);
+
+		for (let i = 0; i < items.length; i++) {
+			itemArray[i].textContent = values[i];
+		}
+
+		// 2) change the < ul > element 's background color to '
+		// limegreen ' -
+		// 	use css class to change the color instead of the style property
+		const ul = document.getElementsByTagName("ul")[0];
+		ul.classList.add("background-color-green");
+	</script>
+
+</body>
+</html>

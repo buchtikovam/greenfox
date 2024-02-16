@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Workshop: innerHTML, textContent</title>
+</head>
+
+<body>
+	<p class="apple">apple</p>
+	<p class="balloon">banana</p>
+	<p class="cat">car</p>
+	<p class="animals">goat rabbit <strong>cat</strong> dog</p>
+
+	<script>
+		// 1)  Append the content of the last paragraph to the other paragraphs.
+		const pAnimal = document.querySelector(".animals");
+		const otherParags = document.querySelectorAll("p:not(.animals)");
+
+		otherParags.forEach(paragraph => {
+			paragraph.textContent += ' ' + pAnimal.textContent;
+		});
+
+		// 2)  Do the same again, but you should keep the cat strong.
+		const newParags = document.querySelectorAll("p:not(.animals)");
+
+		newParags.forEach(paragraph => {
+			paragraph.innerHTML += ' ' + pAnimal.innerHTML;
+		});
+	</script>
+</body>
+
+</html>

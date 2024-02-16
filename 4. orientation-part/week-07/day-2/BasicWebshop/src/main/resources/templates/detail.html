@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>My shop</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+
+<body>
+<div id="header">
+	<h1>My shop</h1>
+</div>
+
+<div id="navigation">
+	<nav>
+		<a th:href="@{/only-available}">Only available</a>
+		<a th:href="@{/cheapest-first}">Cheapest first</a>
+		<a th:href="@{/contains-fruit}">Get fruit</a>
+		<a th:href="@{/average-stock}">Average stock</a>
+		<a th:href="@{/most-expensive}">Most expensive available</a>
+	</nav>
+</div>
+
+<div id="search-form">
+	<form action="/search" method="post">
+		<label for="search">Search for:</label>
+		<input type="text" id="search" name="search">
+		<button type="submit">Search</button>
+	</form>
+</div>
+
+<div id="stock-info">
+	<h2 th:text="${fill}"></h2>
+</div>
+
+<!--
+Add line
+Add links
+Add search bar with button
+-->
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO App</title>
+</head>
+<body>
+<h1>This is what I have to do instead of napping all day</h1>
+
+<table>
+	<tr th:each="todo: ${todos}">
+		<td th:text="${todo.getId()}"></td>
+		<td th:text="${todo.getTitle()}"></td>
+		<td th:text="${todo.isUrgent()}"></td>
+		<td th:text="${todo.isDone()}"></td>
+	</tr>
+</table>
+</body>
+</html>

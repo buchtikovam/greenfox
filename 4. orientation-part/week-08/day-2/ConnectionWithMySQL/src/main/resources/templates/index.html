@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO App</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div id="header">
+	<h1>This is what I have to do instead of napping all day</h1>
+</div>
+
+<div id="search-bar">
+	<form action="/search" method="post">
+		<label for="parameter">Search:</label>
+		<input type="text" id="parameter" name="parameter">
+		<button type="submit">GO</button>
+	</form>
+</div>
+
+<div id="filters">
+	<a th:href="@{/}">Main page</a>
+	<a th:href="@{/show-active}">Show active</a>
+	<a th:href="@{/show-assignees}">Assignees</a>
+</div>
+
+<table id="my-database">
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Content</td>
+			<td>Description</td>
+			<td>Is done</td>
+			<td>Is urgent</td>
+		</tr>
+	</thead>
+
+	<tr th:each="todo: ${todos}">
+		<td th:text="${todo.getTitle()}"></td>
+		<td th:text="${todo.getContent()}"></td>
+		<td th:text="${todo.getDescription()}"></td>
+		<td th:text="${todo.isDone()}"></td>
+		<td th:text="${todo.isUrgent()}"></td>
+	</tr>
+</table>
+
+</body>
+</html>

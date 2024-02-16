@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Bank of Simba</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}" />
+
+</head>
+
+<body>
+	<h1 style="font-size: 70px">Welcome to the Bank of Simba</h1>
+	<h3>Here is a list of our client names and the amount of their money,
+		because we really value everyone's privacy! :)</h3>
+
+	<table>
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Account holder</td>
+				<td>Available money</td>
+				<td>User info</td>
+				<td>Status</td>
+				<td>Behaviour</td>
+			</tr>
+		</thead>
+		<tr th:each="bank: ${banks}">
+			<td th:text="${bank.getId()}"></td>
+			<td th:text="${bank.getName()}"></td>
+			<td th:text="${bank.getBalance()}"></td>
+			<td th:text="${bank.getAnimalType()}"></td>
+			<td th:text="${bank.isKing() ? 'King' : 'Commoner'}"></td>
+			<td th:text="${bank.isGood() ? 'Good guy' : 'Bad guy'}"></td>
+		</tr>
+	</table>
+
+	<div class="row">
+		<div>
+			<form action="/save-bankAccount" method="post">
+				<h1>Add a new bank account</h1>
+
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name">
+
+				<label for="balance">Balance:</label>
+				<input type="number" id="balance" name="balance">
+
+				<label for="animalType">Animal type:</label>
+				<input type="text" id="animalType" name="animalType">
+
+				<label for="isKing">Is holder King?: (true/false)</label>
+				<input type="text" id="isKing" name="isKing">
+
+				<label for="isGood">Is holder good?: (true/false)</label>
+				<input type="text" id="isGood" name="isGood">
+
+				<button type="submit">Save</button>
+			</form>
+		</div>
+
+		<div>
+			<form action="/add-money" method="post">
+				<h1>Increase balance</h1>
+
+				<label for="id">Id:</label>
+				<input type="number" id="id" name="id">
+
+				<button type="submit">Save</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

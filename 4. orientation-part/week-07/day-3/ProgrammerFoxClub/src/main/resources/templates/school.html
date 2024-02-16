@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Programmer fox club</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+	<div id="header">
+		<h1 th:text="'Welcome to ' + ${fox.name} + '\'s school'"></h1>
+		<p>What new should he learn today?</p>
+	</div>
+
+	<div id="navigation">
+		<a th:href="@{/(foxName=${fox.name})}">Information</a>
+		<a th:href="@{/fridge(foxName=${fox.name})}">Fridge</a>
+		<a th:href="@{/school(foxName=${fox.name})}">Trick center</a>
+		<a th:href="@{/.}">Action history</a>
+	</div>
+
+	<div id="form">
+		<div style="color: red" th:text="${error}"></div>
+		<form th:action="@{/school(foxName=${fox.name})}" method="post">
+			<label for="trick" th:text="'What should ' + ${fox.name} + ' learn?'"></label>
+			<select id="trick" name="trick">
+				<option
+						th:each="trick : ${tricks}"
+						th:value="${trick.getName()}"
+						th:text="${trick.getName()}"
+				></option>
+			</select>
+			<button type="submit">Done</button>
+		</form>
+	</div>
+</body>
+</html>

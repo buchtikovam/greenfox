@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Programmer fox club</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+	<div id="header">
+		<h1 th:text="'Welcome to ' + ${fox.name} + '\'s fridge'"></h1>
+		<p>What should he have for dinner?</p>
+	</div>
+
+	<div id="navigation">
+		<a th:href="@{/(foxName=${fox.name})}">Information</a>
+		<a th:href="@{/fridge(foxName=${fox.name})}">Fridge</a>
+		<a th:href="@{/school(foxName=${fox.name})}">Trick center</a>
+		<a th:href="@{/action-history(foxName=${fox.name})}">Action history</a>
+	</div>
+
+	<div id="form">
+		<form th:action="@{/fridge(foxName=${fox.name})}" method="post">
+			<label for="food" th:text="'What should ' + ${fox.name} + ' eat?'"></label>
+			<select id="food" name="food">
+				<option
+					th:each="food : ${foods}"
+					th:value="${food.getName()}"
+					th:text="${food.getName()}"
+				></option>
+			</select>
+
+			<br>
+
+			<label for="drink" th:text="'What should ' + ${fox.name} + ' drink?'"></label>
+			<select id="drink" name="drink">
+				<option
+					th:each="drink : ${drinks}"
+					th:value="${drink.getName()}"
+					th:text="${drink.getName()}"
+				></option>
+			</select>
+
+			<button type="submit">Done</button>
+		</form>
+	</div>
+
+</body>
+
+</html>

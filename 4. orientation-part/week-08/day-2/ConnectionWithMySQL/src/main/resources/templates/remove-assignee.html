@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO App</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div id="header">
+	<h1>Remove assignee</h1>
+</div>
+
+<div id="filters">
+	<a th:href="@{/}">Main page</a>
+</div>
+
+<h3 th:text="'Are you sure you want to remove ' + ${assignee.getName()} + ' from the database?'"></h3>
+<div id="remove-assignee">
+	<form th:action="| /remove-assignee/${assignee.getId()} |" method="post">
+		<button type="submit">Yes</button>
+		<a th:href="@{/show-assignees}">Exit instead</a>
+	</form>
+</div>
+
+</body>
+</html>

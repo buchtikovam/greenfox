@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO App</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div id="header">
+	<h1>These lovely people can do things for me</h1>
+</div>
+
+<div id="filters">
+	<a th:href="@{/}">Main page</a>
+</div>
+
+<table id="my-database">
+	<thead>
+	<tr>
+		<td>Name</td>
+		<td>Email</td>
+		<td></td>
+		<td></td>
+	</tr>
+	</thead>
+
+	<tr th:each="assignee: ${assignees}">
+		<td th:text="${assignee.getName()}"></td>
+		<td th:text="${assignee.getEmail()}"></td>
+		<td><a th:href="@{/edit-assignee/{id}(id=${assignee.getId()})}">Edit</a></td>
+		<td><a th:href="@{/remove-assignee/{id}(id=${assignee.getId()})}">Remove</a></td>
+	</tr>
+</table>
+
+<br>
+
+<h3>Add a new assignee</h3>
+<div id="form-new-assignee">
+	<form action="/add-assignee" method="post">
+
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name">>
+
+		<label for="email">Email:</label>
+		<input type="text" id="email" name="email">
+
+		<button type="submit">GO</button>
+	</form>
+</div>
+
+</body>
+</html>

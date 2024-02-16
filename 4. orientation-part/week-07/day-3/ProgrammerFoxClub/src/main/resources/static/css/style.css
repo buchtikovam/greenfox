@@ -1,0 +1,81 @@
+/* style.css */
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+#header {
+    background-color: #c8e6c9;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    box-shadow: 8px 8px 16px #a3b1a3, -8px -8px 16px #e1f0e1;
+}
+
+#header h1 {
+    text-align: center;
+    color: #4caf50;
+}
+
+p {
+    text-align: center;
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#login-form {
+    background-color: #c8e6c9;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px #a3b1a3, -8px -8px 16px #e1f0e1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+    color: #4caf50;
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #a5d6a7;
+    margin-bottom: 20px;
+    background-color: #c8e6c9;
+    box-shadow: inset 5px 5px 5px #a3b1a3, inset -5px -5px 5px #e1f0e1;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 3px 3px 5px #a3b1a3, -3px -3px 5px #e1f0e1;
+}
+
+button:hover {
+    background-color: #43a047;
+}
+
+div[style="color: red"] {
+    text-align: center;
+    color: red;
+    margin-bottom: 20px;
+}

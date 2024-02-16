@@ -1,0 +1,86 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#navigation {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #d9d9d9, -3px -3px 5px #ffffff;
+}
+
+#navigation a {
+    text-decoration: none;
+    color: #555;
+    padding: 8px 16px;
+    margin: 0 10px;
+    border-radius: 6px;
+}
+
+#navigation a:hover {
+    background-color: #e6e6e6;
+}
+
+#search-form {
+    margin: 20px 0;
+}
+
+#search-form form {
+    display: flex;
+    align-items: center;
+}
+
+#search-form label {
+    margin-right: 10px;
+    color: #333;
+}
+
+#search-form input[type="text"] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+#search-form button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#search-form button:hover {
+    background-color: #e6e6e6;
+}
+
+#item-table {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e6e6e6;
+}

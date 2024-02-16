@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Programmer fox club</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+
+	<div id="header">
+
+	</div>
+
+	<div id="navigation">
+		<a th:href="@{/(foxName=${fox.name})}">Information</a>
+		<a th:href="@{/fridge (foxName=${fox.name})}">Fridge</a>
+		<a th:href="@{/school(foxName=${fox.name})}">Trick center</a>
+		<a th:href="@{/.}">Action history</a>
+	</div>
+
+	<div id="fox-image">
+		<img src="../images/greenfox.png" alt="Image of a green fox">
+	</div>
+
+	<p th:text="
+		'This is '
+		+ ${fox.getName()}
+		+ '. Currently living on '
+		+ ${fox.getCurrentFood()}
+		+ ' and '
+		+ ${fox.getCurrentDrink()}
+		+ '. He knows '
+		+ ${fox.getLearnedTricks().isEmpty() ? '0' : fox.getLearnedTricks().size()}
+		+ (${fox.getLearnedTricks().size() == 1 ? ' trick.' : ' tricks.'})">
+	</p>
+
+	<div id="tricks">
+		<h1>Known tricks</h1>
+		<ul th:if="${fox.getLearnedTricks().isEmpty() == false }">
+			<li th:each="skill : ${fox.getLearnedTricks()}" th:text="${skill}"></li>
+		</ul>
+		<ul th:unless="${fox.getLearnedTricks().isEmpty() == false }">
+			<li>No skills learned.</li>
+		</ul>
+	</div>
+
+	<!--
+	<div id="action-history">
+		<h1>Hacker stuff</h1>
+		<ul>
+			<li>hehehehe</li>
+		</ul>
+	</div>
+	-->
+
+
+</body>
+</html>

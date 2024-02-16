@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Fox clothing shop</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+
+<body>
+
+<h1>Green Fox Fashion Store</h1>
+<h2>Summary</h2>
+
+<div th:switch="${reaction}">
+	<table th:case="'success'">
+		<thead>
+		<tr>
+			<td>Item name</td>
+			<td>Manufacturer</td>
+			<td>Category</td>
+			<td>Quantity</td>
+			<td>Sub-total price</td>
+		</tr>
+		</thead>
+
+		<tbody>
+		<tr>
+			<td th:text="${item.getName()}"></td>
+			<td th:text="${item.getManufacturer()}"></td>
+			<td th:text="${item.getCategory()}"></td>
+			<td th:text="${item.getQuantity()}"></td>
+			<td th:text="${item.getSubtotal_price()}"></td>
+		</tr>
+		</tbody>
+	</table>
+
+	<p th:case="'fail'" style="color: red">Invalid input</p>
+</div>
+
+<br>
+<a th:href="@{/shopping-planner}">Back to main</a>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "vehicles": [
+    {
+      "id": 0,
+      "name": "E-BIKE",
+      "url": "https://cdn.myshoptet.com/usr/www.komuter.cz/user/shop/big/67521-20_e-cafe-bike-model-macchiato-sportovni-mestske-elektrokolo.jpg?62aa0763",
+      "type": 1,
+      "description": "Cool bike that makes you fast.",
+      "duration": 60,
+      "price": 500,
+      "kilometers": 35
+    },
+    {
+      "id": 1,
+      "name": "XIAOMI SCOOTER",
+      "url": "https://www.sencor.cz/getmedia/b4e3f84f-50bd-4917-900a-c0a7cbb6917a/57001081.jpg.aspx?width=2100&height=2100&ext=.jpg",
+      "type": 2,
+      "description": "A really cool scooter so you don't have to walk as much",
+      "duration": 60,
+      "price": 150,
+      "kilometers": 20
+    },
+    {
+      "id": 2,
+      "name": "XIAOMI SCOOTER",
+      "url": "https://www.sencor.cz/getmedia/b4e3f84f-50bd-4917-900a-c0a7cbb6917a/57001081.jpg.aspx?width=2100&height=2100&ext=.jpg",
+      "type": 2,
+      "description": "Same scooter but definitely better",
+      "duration": 60,
+      "price": 200,
+      "kilometers": 25
+    },
+    {
+      "id": 4,
+      "name": "BASIC BIKE",
+      "url": "https://lekkerbikes.com.au/cdn/shop/products/amsterdam-plus-electric-bike-black-21.png?v=1664801717",
+      "type": 1,
+      "description": "Basic bike for basic guys",
+      "duration": 30,
+      "price": 100,
+      "kilometers": 40
+    },
+    {
+      "id": 5,
+      "name": "MODERN CAR",
+      "url": "https://www.kaden.cz/editor/image/eshop_products_other_pictures/675/filename_675_l.jpg",
+      "type": 4,
+      "description": "Super fast racing car",
+      "duration": 360,
+      "price": 1000,
+      "kilometers": 240
+    }
+  ],
+  "users": [
+    {
+      "userName": "juraj123",
+      "email": "juraj123@popcode.com",
+      "password": "#Qw35Ty!",
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>URL Aliaser</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>URL Aliaser</h1>
+
+<table>
+	<thead>
+		<tr>
+			<td>URL</td>
+			<td>Alias</td>
+			<td>Hit count</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr th:each="alias: ${aliases}">
+			<td>
+				<a
+					th:href="${alias.getLink().getUrl()}"
+					th:text="${alias.getLink().getUrl()}"
+					target="_blank"
+				></a>
+			</td>
+			<td th:text="${alias.getAlias()}"></td>
+			<td th:text="${alias.getHitCount()}"></td>
+		</tr>
+	</tbody>
+</table>
+
+<p th:utext="${reaction}" th:style="'color: ' + ${color}"></p>
+
+<form action="/save-link" method="post">
+	<label for="link">URL</label>
+	<input type="text" id="link" name="link">
+
+	<label for="alias">Alias</label>
+	<input type="text" id="alias" name="alias">
+
+	<button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
