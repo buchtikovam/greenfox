@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Mentor Scheduler</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>See details of mentor:</h1>
+
+<ul th:each="mentor: ${mentors}">
+	<li>
+		<a
+			th:href="|mentor/${mentor.getId()}|"
+			th:text="${mentor.getName()}"
+		></a>
+	</li>
+</ul>
+
+<h2>Add new mentor</h2>
+
+<form action="/mentor" method="post">
+	<label for="name">Name</label>
+	<input type="text" id="name" name="name" required>
+
+	<label for="classroom">Class</label>
+	<select id="classroom" name="classroom">
+		<option value="0">Select</option>
+		<option
+			th:each="classroom: ${classrooms}"
+			th:text="${classroom.getClassName()}"
+			th:value="${classroom.getClassName()}"
+		></option>
+	</select>
+
+	<button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
