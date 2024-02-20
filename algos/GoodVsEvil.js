@@ -13,11 +13,13 @@ function goodVsEvil(goodCount, evilCount) {
 
     if (good > evil) {
         return "Battle Result: Good triumphs over Evil";
-    } else if (evil > good) {
-        return "Battle Result: Evil eradicates all trace of Good";
-    } else {
-        return "Battle Result: No victor on this battle field";
     }
+
+    if (evil > good) {
+        return "Battle Result: Evil eradicates all trace of Good";
+    }
+
+    return "Battle Result: No victor on this battle field";
 }
 
 console.log(goodVsEvil('3 1 1 1 1 1', '1 1 1 1 1 1 1'))
