@@ -65,11 +65,18 @@ class Library {
                 720,
                 false
             ),
+            new Book(
+                "Happy Place",
+                "Emily Henry",
+                "https://mrtns.sk/tovar/_xl/1918/xl1918593.jpg?v=17055541282",
+                350,
+                false
+            ),
         ]
 
         // saved books
         const localStorageBooks = localStorage.getItem("books");
-        if (localStorageBooks !== null && localStorageBooks !== '') {
+        if (localStorageBooks !== null && localStorageBooks !== '' && localStorageBooks !== '[]') {
             books = JSON.parse(localStorageBooks)
         }
 
@@ -131,7 +138,7 @@ form.addEventListener("submit", (event) => {
 })
 
 function renderBooks() {
-    let container = document.getElementById("book-container");
+    let container = document.querySelector(".book-container");
     let existingGrid = document.getElementById("book-grid");
 
     if (typeof(existingGrid) !== 'undefined' && existingGrid != null) {
@@ -151,7 +158,6 @@ function renderBooks() {
         let img = document.createElement("img");
         img.setAttribute("src", book.getImg());
         img.setAttribute("alt", "book cover");
-        img.setAttribute("width", "100px");
 
         let pages = document.createElement("p");
         pages.textContent = `${book.getPages()} pages`;
@@ -160,16 +166,35 @@ function renderBooks() {
         isRead.textContent = "State: " + (book.getIsRead() === true ? "finished" : "not read yet");
 
         let toggleIsReadBtn = document.createElement("button");
-        toggleIsReadBtn.textContent = (book.getIsRead() === true ? "Unfinish" : "Finish") + "book";
+        toggleIsReadBtn.textContent = (book.getIsRead() === true ? "Unfinish" : "Finish") + " book";
         toggleIsReadBtn.addEventListener("click", () => toggleIsRead(index))
 
         let deleteBookBtn = document.createElement("button");
         deleteBookBtn.textContent = "Delete book";
         deleteBookBtn.addEventListener("click", () => deleteBook(index))
 
-        let child = document.createElement("div");
-        child.append(title, author, img, pages, isRead, toggleIsReadBtn, deleteBookBtn);
-        grid.appendChild(child);
+        // append book
+        let front = document.createElement("div");
+        front.setAttribute("class", "flip-card-front");
+        front.append(img);
+
+        let back = document.createElement("div");
+        back.setAttribute("class", "flip-card-back");
+        back.append(author, pages, isRead);
+
+        let content = document.createElement("div");
+        content.setAttribute("class", "flip-card-inner");
+        content.append(front, back);
+
+        let buttons = document.createElement("div");
+        buttons.setAttribute("class", "flip-card-buttons")
+        buttons.append(toggleIsReadBtn, deleteBookBtn);
+
+        let flipCard = document.createElement("div");
+        flipCard.setAttribute("class", "flip-card");
+        flipCard.append(title, content, buttons);
+
+        grid.append(flipCard);
     })
 
     container.appendChild(grid);
@@ -182,6 +207,7 @@ function addBook(book) {
 
 function toggleIsRead(index) {
     library.getBook(index).toggleIsRead();
+    library.saveBooks();
     renderBooks();
 }
 
