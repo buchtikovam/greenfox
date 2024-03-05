@@ -10,17 +10,37 @@
     margin-bottom: 30px;
 }
 
-#book-grid {
-    width: 1000px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.book-container {
+    width: 100%;
+    margin-left: auto;
 }
 
-.flip-card {
-    width: 32%;
+#book-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 25px;
+}
+
+
+@media (min-width: 600px) {
+    #book-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    #book-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
     display: flex;
-    margin-bottom: 50px;
+    max-width: 350px;
+    margin-bottom: 40px;
     flex-direction: column;
     align-items: center;
     border-radius: 30px;
@@ -30,34 +50,34 @@
 }
 
 
-.flip-card-front > img {
+img {
     height: 300px;
+    border-radius: 20px;
+    margin-bottom: 5px;
     width: 200px;
     object-fit: cover;
 }
 
-.flip-card-back {
-    display: none;
-    flex-direction: column;
-    align-items: center;
+.content {
+    margin: -15px auto 5px 10%;
 }
 
-.flip-card-buttons {
+.buttons {
     width: 90%;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
 }
 
 button {
     color: #090909;
-    font-size: 18px;
+    font-size: 16px;
+    padding: 4px;
     border-radius: 0.5em;
     cursor: pointer;
     border: 1px solid #e8e8e8;
     transition: all 0.3s;
-
 }
 
 button:hover {
@@ -66,4 +86,39 @@ button:hover {
 
 button:active {
     box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
+
+dialog {
+    border: none !important;
+    border-radius: 30px;
+    background: #e0e0e0;
+    width: 300px;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 1.6rem;
+    max-width: 400px;
+}
+
+#new-book-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: auto;
+}
+
+input {
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    border-radius: 1rem;
+    background: #e8e8e8;
+    transition: 0.3s;
+    margin-bottom: 5px;
+}
+
+input:focus {
+    outline-color: #e8e8e8;
+    background: #e8e8e8;
+    transition: 0.3s;
+}
+
+#new-book-form > button {
+    margin-top: 10px;
 }

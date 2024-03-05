@@ -1,5 +1,5 @@
 class Book {
-    constructor (
+    constructor(
         title,
         author,
         img,
@@ -72,6 +72,27 @@ class Library {
                 350,
                 false
             ),
+            new Book(
+                "The Echo Man",
+                "Sam Holland",
+                "https://m.media-amazon.com/images/I/81aXZgftZeL._AC_UF1000,1000_QL80_.jpg",
+                358,
+                false
+            ),
+            new Book(
+                "A Good Girls Guide To Murder",
+                "Holly Jackson",
+                "https://www.slovart.cz/buxus/images/image_32886_19_v1.jpeg",
+                433,
+                true
+            ),
+            new Book(
+                "Iron flame",
+                "Rebecca Yarros",
+                "https://api.entangledpublishing.com/storage/books/book_16898805855475.jpg",
+                623,
+                false
+            ),
         ]
 
         // saved books
@@ -141,7 +162,7 @@ function renderBooks() {
     let container = document.querySelector(".book-container");
     let existingGrid = document.getElementById("book-grid");
 
-    if (typeof(existingGrid) !== 'undefined' && existingGrid != null) {
+    if (typeof (existingGrid) !== 'undefined' && existingGrid != null) {
         container.removeChild(existingGrid);
     }
 
@@ -173,26 +194,17 @@ function renderBooks() {
         deleteBookBtn.textContent = "Delete book";
         deleteBookBtn.addEventListener("click", () => deleteBook(index))
 
-        // append book
-        let front = document.createElement("div");
-        front.setAttribute("class", "flip-card-front");
-        front.append(img);
-
-        let back = document.createElement("div");
-        back.setAttribute("class", "flip-card-back");
-        back.append(author, pages, isRead);
-
         let content = document.createElement("div");
-        content.setAttribute("class", "flip-card-inner");
-        content.append(front, back);
+        content.setAttribute("class", "content");
+        content.append(author, pages, isRead);
 
         let buttons = document.createElement("div");
-        buttons.setAttribute("class", "flip-card-buttons")
+        buttons.setAttribute("class", "buttons")
         buttons.append(toggleIsReadBtn, deleteBookBtn);
 
         let flipCard = document.createElement("div");
-        flipCard.setAttribute("class", "flip-card");
-        flipCard.append(title, content, buttons);
+        flipCard.setAttribute("class", "card");
+        flipCard.append(title, content, img, buttons);
 
         grid.append(flipCard);
     })

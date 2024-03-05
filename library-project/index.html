@@ -16,6 +16,7 @@
 
     <div class="modal">
         <dialog>
+            <h2>Add a new book!</h2>
             <form id="new-book-form" method="dialog">
                 <label for="title">Title:</label>
                 <input id="title" type="text" name="title" required>
@@ -26,11 +27,11 @@
                 <label for="img">Image url:</label>
                 <input id="img" type="text" name="img" required>
 
-                <label for="pages">Number of Pages:</label>
-                <input id="pages" type="text" name="pages" required>
+                <label for="pages">Number of pages:</label>
+                <input id="pages" type="number" name="pages" required>
 
                 <fieldset>
-                    <legend>Is the book read?</legend>
+                    <legend>Have you finished the book?</legend>
 
                     <input id="yes" type="radio" name="is-read" value="Yes" checked>
                     <label for="yes">Yes</label>
