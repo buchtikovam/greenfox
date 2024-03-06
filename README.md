@@ -7,7 +7,13 @@ This experience honed my skills across both front-end and back-end development, 
 Here, you'll discover a of my smaller and bigger projects!
 
 ### 📖 Library (Mar 2024)
-Explore my adept use of DOM manipulation in [this project.](https://library-ruby-pi.vercel.app/)
+Explore my use of DOM manipulation in [this project.](https://library-ruby-pi.vercel.app/)
+
+Features:
+- Store books in a library
+- Change read status
+- Delete books
+- Changes are automatically saved in your local storage
 
 ### 🦊 Green Fox Academy (Sep 2023 - Feb 2024)
 In this repository, you can find my whole journey through the bootcamp.
