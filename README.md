@@ -4,7 +4,7 @@ As a passionate frontend developer, I thrive in the dynamic world of technology.
 During my intensive six-months at Green Fox Academy, I delved into a comprehensive full-stack development bootcamp. 
 This experience honed my skills across both front-end and back-end development, with a specialized focus on Spring Framework and React.
 
-Here, you'll discover a of my smaller and bigger projects!
+Here, you'll discover some of my smaller and bigger projects!
 
 ### 📖 Library (Mar 2024)
 Explore my use of DOM manipulation in [this project.](https://library-ruby-pi.vercel.app/)
