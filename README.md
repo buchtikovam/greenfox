@@ -19,7 +19,7 @@ Features:
 - Change read status
 - Delete books
 - Changes are automatically saved in your local storage
-- 
+
 ---
 ### 🦊 Green Fox Academy (Sep 2023 - Feb 2024)
 In this repository, you can find my whole journey through the bootcamp.
