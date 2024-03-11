@@ -22,4 +22,8 @@ Features:
 
 ---
 ### 🦊 Green Fox Academy (Sep 2023 - Feb 2024)
-In this repository, you can find my whole journey through the bootcamp.
+Diving into Java, HTML, CSS, and JavaScript, I've gained a strong foundation in coding essentials. 
+
+Through practical modules and project-based learning, I've honed my skills in full-stack development, integrating modern technologies like React, and Java Spring framework. 
+
+Greenfox has equipped me with the skills and confidence to navigate the ever-evolving world of web development.
