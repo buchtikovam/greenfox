@@ -1,18 +1,19 @@
-# Welcome to my primary repository 🌴
+# Welcome to my small-project repository 🌴
 As a passionate frontend developer, I thrive in the dynamic world of technology.
 
 During my intensive six-months at Green Fox Academy, I delved into a comprehensive full-stack development bootcamp. 
 This experience honed my skills across both front-end and back-end development, with a specialized focus on Spring Framework and React.
 
-Here, you'll discover some of my smaller and bigger projects!
+Here, you'll discover some of my smaller projects!
 ---
 
-### 🎮 Tic Tac Toe - in progress
+### 🎮 [Tic Tac Toe](https://tic-tac-toe-nu-inky.vercel.app/) (Mar 2024)
+Check out my practise of OOP, cookie usage and DOM manipulation [here.](https://github.com/buchtikovam/projects/tree/main/tic-tac-toe)
 
 ---
 
-### 📖 Library (Mar 2024)
-Explore my use of DOM manipulation in [this project.](https://library-ruby-pi.vercel.app/)
+### 📖 [Library](https://library-ruby-pi.vercel.app/) (Mar 2024) 
+Explore my use of DOM manipulation in [this project.](https://github.com/buchtikovam/projects/tree/main/library)
 
 Features:
 - Store books in a library
