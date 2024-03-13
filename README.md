@@ -12,7 +12,7 @@ Check out my practise of OOP, cookie usage and DOM manipulation [here.](https://
 
 ---
 
-### 📖 [Library](https://library-ruby-pi.vercel.app/) (Mar 2024) 
+### 📖 [Library](https://library-omega-five.vercel.app/) (Mar 2024) 
 Explore my use of DOM manipulation in [this project.](https://github.com/buchtikovam/projects/tree/main/library)
 
 Features:
