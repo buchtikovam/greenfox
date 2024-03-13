@@ -22,7 +22,7 @@ Features:
 - Changes are automatically saved in your local storage
 
 ---
-### 🦊 Green Fox Academy (Sep 2023 - Feb 2024)
+### 🦊 [Green Fox Academy](https://github.com/buchtikovam/projects/tree/main/greenfox) (Sep 2023 - Feb 2024)
 Diving into Java, HTML, CSS, and JavaScript, I've gained a strong foundation in coding essentials. 
 
 Through practical modules and project-based learning, I've honed my skills in full-stack development, integrating modern technologies like React, and Java Spring framework. 
