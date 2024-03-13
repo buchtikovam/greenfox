@@ -1,10 +1,10 @@
-import { Game } from "./game.js";
+import {Game} from "./game.js";
 
-disableTiles(); // start with disabled game
+disableTiles();
 
 let game;
 let gameAction = document.querySelector(".gameAction");
-let gameText = document.createElement("h3");
+let gameText = document.createElement("p");
 let startButton = document.createElement("button");
 let resetBtn = document.querySelector(".resetBtn")
 resetBtn.addEventListener("click", gameReset)
@@ -38,31 +38,28 @@ function clickTileHandler() {
     const row = parseInt(this.dataset.row, 10);
     const col = parseInt(this.dataset.col, 10);
 
-    if (game.isValidCell(row, col)) {
-        game.markCell(row, col);
+    if (game.isValidTile(row, col)) {
+        game.markTile(row, col);
 
         if (game.isVictory()) {
             gameText.textContent = `${game.getCurrentPlayerName()} wins!`;
-            console.log(`${game.getCurrentPlayerName()} wins!`)
             disableTiles()
-        } else {
-            game.switchTurn();
-            updatePlayText();
+            return
         }
-    } else {
-        console.warn("Invalid move");
-    }
 
-    if (game.isBoardFull()) {
-        gameText.textContent = "It's a tie!";
-        disableTiles()
-        console.log("tie")
+        if (game.isBoardFull()) {
+            gameText.textContent = "It's a tie!";
+            disableTiles();
+            return;
+        }
+
+        game.switchTurn();
+        updatePlayText();
     }
 }
 
 
 function disableTiles() {
-    console.log("disabling")
     let tiles = Array.from(document.getElementsByClassName("tile"));
 
     tiles.forEach(tile => {
