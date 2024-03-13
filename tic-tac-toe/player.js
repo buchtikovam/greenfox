@@ -7,4 +7,8 @@ export class Player {
     getName() {
         return this.name;
     }
+
+    getSymbol() {
+        return this.symbol;
+    }
 }

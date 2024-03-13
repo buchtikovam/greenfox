@@ -26,9 +26,24 @@
 }
 
 .tile {
-    background: #b7a2b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.tile:hover {
-    background-color: hotpink;
+.tile.active {
+    background-color: pink;
+}
+.tile.disabled {
+    background-color: #a99797;
+}
+
+.tile.active:hover {
+    background-color: #f681bd;
+}
+
+.tile > p {
+    display: flex;
+    font-size: 60px;
+    font-family: 'Arial', sans-serif;
 }

@@ -1,13 +1,16 @@
-import {Game} from "./game.js";
+import { Game } from "./game.js";
+
+disableTiles(); // start with disabled game
 
 let game;
 let gameAction = document.querySelector(".gameAction");
+let gameText = document.createElement("h3");
 let startButton = document.createElement("button");
-let gameText = document.createElement("p");
+let resetBtn = document.querySelector(".resetBtn")
+resetBtn.addEventListener("click", gameReset)
 
-startButton.textContent = "START GAME";
 gameAction.appendChild(startButton)
-
+startButton.textContent = "START GAME";
 startButton.addEventListener("click", () => {
     gameLoop()
 })
@@ -18,7 +21,6 @@ function updatePlayText() {
 
 function gameLoop() {
     game = new Game()
-
     gameAction.removeChild(startButton);
     gameAction.appendChild(gameText);
 
@@ -27,28 +29,54 @@ function gameLoop() {
     let tiles = Array.from(document.getElementsByClassName("tile"));
 
     tiles.forEach(tile => {
-        tile.addEventListener("click", () => {
-            const row = parseInt(tile.dataset.row, 10);
-            const col = parseInt(tile.dataset.col, 10);
+        tile.setAttribute("class", "tile active")
+        tile.addEventListener("click", clickTileHandler)
+    });
+}
 
-            if (game.isBoardFull()) {
-                gameText.textContent = "It's a tie!";
-                console.log("tie")
-                // add tie screen
-            }
+function clickTileHandler() {
+    const row = parseInt(this.dataset.row, 10);
+    const col = parseInt(this.dataset.col, 10);
 
-            if (game.isValidCell(row, col)) {
-                if (game.isVictory(row, col)) {
-                    gameText.textContent = `${game.getCurrentPlayerName()} wins!`;
-                    console.log(`${game.getCurrentPlayerName()} wins!`)
-                    // add victory screen
-                }
+    if (game.isValidCell(row, col)) {
+        game.markCell(row, col);
 
-                game.markCell(row, col);
-                updatePlayText();
-            } else {
-                console.warn("Invalid move: Cell is already occupied or out of bounds!");
-            }
-        });
+        if (game.isVictory()) {
+            gameText.textContent = `${game.getCurrentPlayerName()} wins!`;
+            console.log(`${game.getCurrentPlayerName()} wins!`)
+            disableTiles()
+        } else {
+            game.switchTurn();
+            updatePlayText();
+        }
+    } else {
+        console.warn("Invalid move");
+    }
+
+    if (game.isBoardFull()) {
+        gameText.textContent = "It's a tie!";
+        disableTiles()
+        console.log("tie")
+    }
+}
+
+
+function disableTiles() {
+    console.log("disabling")
+    let tiles = Array.from(document.getElementsByClassName("tile"));
+
+    tiles.forEach(tile => {
+        tile.setAttribute("class", "tile disabled")
+        tile.removeEventListener("click", clickTileHandler)
+    })
+}
+
+function gameReset() {
+    game.resetGame();
+    gameAction.removeChild(gameText);
+    gameAction.appendChild(startButton);
+    disableTiles()
+    document.querySelectorAll('.tile').forEach(tile => {
+        tile.textContent = '';
     });
 }

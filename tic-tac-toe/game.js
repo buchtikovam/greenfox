@@ -1,4 +1,4 @@
-import {Player} from "./player.js";
+import { Player } from "./player.js";
 
 export class Game {
     _board;
@@ -9,8 +9,8 @@ export class Game {
         this._board = new Array(3).fill(null).map(() => new Array(3).fill(0));
 
         this._players = [
-            new Player("player one", 1),
-            new Player("player two", 2),
+            new Player("player one", "X"),
+            new Player("player two", "O"),
         ];
 
         this._currentPlayer = 0;
@@ -24,13 +24,15 @@ export class Game {
     markCell(row, col) {
         console.log("marking")
         if (this.isValidCell(row, col)) {
-            this._board[row][col] = this._players[this._currentPlayer].symbol;
-            console.log(this._players[this._currentPlayer].symbol)
-            this.switchTurn();
+            const symbol = this._players[this._currentPlayer].getSymbol();
+            this._board[row][col] = symbol;
+
+            let textSymbol = document.createElement("p")
+            textSymbol.textContent = symbol;
+            document.querySelector(`[data-row="${row}"][data-col="${col}"]`).appendChild(textSymbol);
         } else {
             throw new Error("Invalid cell or cell already occupied!");
         }
-        console.log(this._board)
     }
 
     isValidCell(row, col) {
@@ -38,29 +40,32 @@ export class Game {
         return this._board[row][col] === 0;
     }
 
-    isVictory(row, col) {
-        const winningLines = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6],
-        ];
+    isVictory() {
+        const symbols = ['X', 'O'];
 
-        for (let i = 0; i < winningLines.length; i++) {
-            const [a, b, c] = winningLines[i];
-            const playerSymbol = this._board[row][col];
-
-            if (playerSymbol !== 0 && playerSymbol === this._board[a][c] && playerSymbol === this._board[b][c]) {
-                console.log("victory: true");
+        // Check rows and columns
+        for (let i = 0; i < 3; i++) {
+            if ((this._board[i][0] === this._board[i][1] && this._board[i][0] === this._board[i][2]) && symbols.includes(this._board[i][0])) {
+                console.log("victory")
+                return true;
+            }
+            if ((this._board[0][i] === this._board[1][i] && this._board[0][i] === this._board[2][i]) && symbols.includes(this._board[0][i])) {
+                console.log("victory")
                 return true;
             }
         }
 
-        console.log("victory: false");
+        // Check diagonals
+        if ((this._board[0][0] === this._board[1][1] && this._board[0][0] === this._board[2][2]) && symbols.includes(this._board[0][0])) {
+            console.log("victory")
+            return true;
+        }
+        if ((this._board[0][2] === this._board[1][1] && this._board[0][2] === this._board[2][0]) && symbols.includes(this._board[0][2])) {
+            console.log("victory")
+            return true;
+        }
+
+        console.log("checked for victory")
         return false;
     }
 
@@ -76,7 +81,9 @@ export class Game {
     }
 
     resetGame() {
+        console.log("new board")
         this._board = new Array(3).fill(null).map(() => new Array(3).fill(null));
+        console.log(this._board)
         this._currentPlayer = 0;
     }
 
