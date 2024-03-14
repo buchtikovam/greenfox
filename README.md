@@ -8,7 +8,7 @@ Here, you'll discover some of my smaller projects!
 ---
 
 ### 🎮 [Tic Tac Toe](https://tic-tac-toe-nu-inky.vercel.app/) (Mar 2024)
-Check out my practise of OOP, cookie usage and DOM manipulation [here.](https://github.com/buchtikovam/projects/tree/main/tic-tac-toe)
+Check out my practise of OOP and DOM manipulation [here.](https://github.com/buchtikovam/projects/tree/main/tic-tac-toe)
 
 ---
 
